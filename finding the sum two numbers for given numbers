@@ -1,0 +1,68 @@
+int main ()
+{
+  int v;
+  int i;
+  int m;
+  int k;
+  int l;
+  int flag=0;
+  int value;
+  printf("Give the length of array\n");
+  scanf("%d", &v);
+  printf("Give the values to rotate cloack wise should be less than or equal to length of array\n");
+  scanf("%d", &k);
+  printf("GIVE THE VALUE TO THE ARRAY\n");
+  int a[v];
+  int b[v];
+  for (i = 0; i < v; i++)
+    {
+      scanf("%d",&a[i]);
+      b[i] = a[i];
+    }
+  for (i = k,l=0; i < v; i++,l++)
+    {
+      a[i] = b[l];
+    }
+  for (i=0, m = v-k; i< k; m++, i++)
+    {
+      a[i] = b[m];
+    }
+  for (i = 0; i < v; i++)
+    {
+      printf ("%d", a[i]);
+    }
+    printf("\n");
+  printf("enter the value to be found\n");
+  scanf("%d",&value);
+  for (i=0; i<= v/2; i++)
+    {
+       if(value == a[i])
+       {
+           printf("value found in position= %d\n",i+1);
+       }
+    }
+   for (i=(v/2)+1; i<=v; i++)
+   {
+       if(value == a[i])
+       {
+           printf("value found in position= %d\n",i+1);
+       }
+    }
+    int j;
+    for(i=0; i<v;i++)
+    {
+        for(j=v-1;j>=0;j--)
+        {
+           if(value == (a[i]+a[j]))
+             {
+               printf("Two values (%d)(%d)\n",i,j);
+               flag = flag +1;
+             }
+        }
+    }
+    if(flag == 0)
+    {
+        printf("Not found\n");
+    }
+  return 0;
+}
